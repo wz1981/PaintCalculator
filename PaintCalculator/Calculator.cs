@@ -24,7 +24,7 @@ namespace PaintCalculator
                 return JsonConvert.SerializeObject(new ErrorHandler { Error="error", ErrorMessage="Invalid data"});
             var negativeNumbers = splitNumbers.Where(x => x < 0).ToList();
             if (negativeNumbers.Any())
-                return JsonConvert.SerializeObject(new ErrorHandler { Error = "error", ErrorMessage = "Negative number are not allowed" });
+                throw new Exception("Negatives not allowed:" + string.Join(",", negativeNumbers));
             width = splitNumbers[0];
             length = splitNumbers[1];
             height = splitNumbers[2];              

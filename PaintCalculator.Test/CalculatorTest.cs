@@ -8,8 +8,7 @@ namespace PaintCalculator.Test
 {
     public class CalculatorTest
     {
-        [Theory]
-        //[InlineData("", "{\"Area\":0.0,\"Amount\":0.0,\"Volume\":0.0}")]
+        [Theory]       
         [InlineData(",2,3", "{\"Error\":\"error\",\"ErrorMessage\":\"Invalid data\"}")]
         public void Add_ReturnZeroValue_WhenPassingEmptyString(string calculation, string expected)
         {
@@ -34,17 +33,19 @@ namespace PaintCalculator.Test
             result.Should().Be(expected);
         }
         [Theory]
-        [InlineData("5,-6,4","{\"Error\":\"error\",\"ErrorMessage\":\"Negative number are not allowed\"}")]
-        [InlineData("-5.67,-6,-4", "{\"Error\":\"error\",\"ErrorMessage\":\"Negative number are not allowed\"}")]
-        [InlineData("5,-6.89,-4", "{\"Error\":\"error\",\"ErrorMessage\":\"Negative number are not allowed\"}")]
-        public void Add_ReturnNegativeValueNotAllowedMessage_WhenAnyOfFieldsIsNegative(string calculation, string expected)
+        [InlineData("5,-6,4","-6")]
+        [InlineData("-5.67,-6,-4","-5.67,-6,-4")]
+        [InlineData("5,-6.89,-4","-6.89,-4")]
+        public void Add_ReturnNegativeValueNotAllowedMessage_WhenAnyOfFieldsIsNegative(string calculation, string negativeNumbers)
         {
             //Arrange
             var cal = new Calculator();
             //Act
-            var result = cal.AreaAmountVoulmeInfo(calculation);
+            Action action = ()=> cal.AreaAmountVoulmeInfo(calculation);
             //Assert
-            result.Should().Be(expected);
+            action.Should()
+                .Throw<Exception>()
+                .WithMessage("Negatives not allowed:" + negativeNumbers);
         }
 
         [Theory]
