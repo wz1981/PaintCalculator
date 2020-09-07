@@ -4,11 +4,11 @@ PaintCalculator is a simple TDD (test driven development) approach for calculati
 
 ## Installation
 
+- All the `code` required to get started
+
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install PaintCalculator
 
-```bash
-pip install PaintCalculator
-```
+
 
 ## Usage
 
@@ -20,4 +20,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
