@@ -1,0 +1,12 @@
+﻿Paint Calculator
+
+1. Create a simple Paint Calculator with a method
+string AreaAmountVoulmeInfo(string numbers)
+
+
+2. Allow method to handle empty string or invalid string length
+
+3. display errormessage when string contains negative numbers
+
+4.support different delimiters
+
