@@ -49,7 +49,7 @@ namespace PaintCalculator.Test
         }
 
         [Theory]
-        [InlineData("4.5,10,6", "{\"Area\":45.0,\"Amount\":174.0,\"Volume\":270.0}")]
+        [InlineData("4.5,10,6", "{\"Area\":45.0,\"Amount\":14.5,\"Volume\":270.0}")]
         public void Add_ReturnValidJsonString_WhenPassValidNumbers(string calculation, string expected)
         {
             //Arrange
@@ -61,7 +61,7 @@ namespace PaintCalculator.Test
         }
 
         [Theory]
-        [InlineData("4.567,10.321,6.12", "{\"Area\":47.14,\"Amount\":182.23,\"Volume\":288.47}")]
+        [InlineData("4.567,10.321,6.12", "{\"Area\":47.14,\"Amount\":15.19,\"Volume\":288.47}")]
         public void Add_ReturnValidrRoundValueWithJsonString_WhenPassValidNumbersWithDecimals(string calculation, string expected)
         {
             //Arrange
@@ -73,9 +73,9 @@ namespace PaintCalculator.Test
         }
 
         [Theory]
-        [InlineData("4.567|10.321|6.12", "{\"Area\":47.14,\"Amount\":182.23,\"Volume\":288.47}")]
-        [InlineData("4.567?10.321?6.12", "{\"Area\":47.14,\"Amount\":182.23,\"Volume\":288.47}")]
-        [InlineData("4.567/10.321/6.12", "{\"Area\":47.14,\"Amount\":182.23,\"Volume\":288.47}")]
+        [InlineData("4.567|10.321|6.12", "{\"Area\":47.14,\"Amount\":15.19,\"Volume\":288.47}")]
+        [InlineData("4.567?10.321?6.12", "{\"Area\":47.14,\"Amount\":15.19,\"Volume\":288.47}")]
+        [InlineData("4.567/10.321/6.12", "{\"Area\":47.14,\"Amount\":15.19,\"Volume\":288.47}")]
         public void Add_ReturnValidrRoundValueWithJsonString_WhenUsingDifferentDelimiters(string calculation, string expected)
         {
             //Arrange

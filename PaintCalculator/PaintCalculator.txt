@@ -10,3 +10,4 @@ string AreaAmountVoulmeInfo(string numbers)
 
 4.support different delimiters
 
+5.Recalcuator paint amount required by assuming 1L of paint covers 12 quare meters of wall

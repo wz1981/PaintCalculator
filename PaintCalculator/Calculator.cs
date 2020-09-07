@@ -9,13 +9,14 @@ namespace PaintCalculator
 {
     public class Calculator
     {
-        
+        private const int litrePerSqureMeter = 12;
         public string AreaAmountVoulmeInfo(string numbers)
         {
             ShapeOutput shapeOutput = new ShapeOutput();
             double width = 0;
             double length = 0;
             double height = 0;
+           
             var delimiters = new List<char> { ',', '|','/' ,'?'};
             var splitNumbers = numbers
                 .Split(delimiters.ToArray(),System.StringSplitOptions.RemoveEmptyEntries)
@@ -29,7 +30,7 @@ namespace PaintCalculator
             length = splitNumbers[1];
             height = splitNumbers[2];              
             shapeOutput.Area = Math.Round(width * length,2);
-            shapeOutput.Amount = Math.Round( (height * length) * 2 + (width * height) * 2, 2);
+            shapeOutput.Amount = Math.Round( ((height * length) * 2 + (width * height) * 2)/12, 2);
             shapeOutput.Volume = Math.Round(width * height * length,2);
             return JsonConvert.SerializeObject(shapeOutput);
         }
